@@ -1,0 +1,56 @@
+.publication {
+    padding: 15px;
+    max-width: 85%;
+    margin: 10px auto;
+    border: 2px solid lightgrey;
+    border-radius: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.publication img {
+    max-width: 65%;
+    height: auto;
+    margin: 10px auto;
+    border-radius: 15px;
+}
+
+.publication h3,
+p {
+    text-align: left;
+}
+
+/* *****************************************************************
+VERSION TABLETTE
+***************************************************************** */
+
+@media screen and (min-width: 760px) {
+    .publication {
+        max-width: 70%;
+        margin: 15px auto 10px;
+    }
+
+    .publication img {
+        max-width: 75%;
+    }
+
+    .category a {
+        width: 20%;
+        text-align: end;
+    }
+
+    .sub {
+        padding: 10px;
+        width: 30%;
+        margin: 15px 5px;
+    }
+}
+
+
+/* *****************************************************************
+VERSION DESKTOP
+***************************************************************** */
+
+@media screen and (min-width: 1100px) {
+    
+}

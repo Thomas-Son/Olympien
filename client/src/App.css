@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.8rem;
+    font-family: "roboto";
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+}
+
+p {
+    margin: 10px 0;
+}
+
+img {
+    display: block;
+}
+
+
+/* *****************************************************************
+VERSION TABLETTE
+***************************************************************** */
+
+@media screen and (min-width: 760px) {
+    
+}
+
+
+/* *****************************************************************
+VERSION DESKTOP
+***************************************************************** */
+
+@media screen and (min-width: 1100px) {
+    main {
+        background-image: url("./assets/img/bg.jpg");
+    }
+}

@@ -1,0 +1,64 @@
+.category {
+    max-width: 90%;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.category h2 {
+    color: rgb(85, 85, 85);
+    width: 70%;
+}
+
+.category > a {
+    width: 30%;
+}
+
+.sub {
+    padding: 10px;
+    width: 30%;
+    border: 2px solid lightgrey;
+    border-radius: 5px;
+    margin: 2px;
+}
+
+/* *****************************************************************
+VERSION TABLETTE
+***************************************************************** */
+
+@media screen and (min-width: 760px) {
+    .category{
+        max-width: 80%;
+        margin: 35px auto;
+    }
+
+    .category h2 {
+        width: 80%;
+    }
+
+    .category > a {
+        width: 20%;
+        text-align: end;
+    }
+
+    .sub {
+        padding: 10px;
+        width: 30%;
+        margin: 15px 5px;
+    }
+}
+
+
+/* *****************************************************************
+VERSION DESKTOP
+***************************************************************** */
+
+@media screen and (min-width: 1100px) {
+    .sub_bg {
+        background-color: white;
+        max-width: 60%;
+        margin: auto;
+    }
+}

@@ -1,0 +1,41 @@
+.subDetail {
+    border: 2px solid lightgray;
+    border-radius: 15px;
+    width: 80%;
+    margin: 3rem auto;
+    padding: 10px;
+}
+
+.subDetail ul {
+    margin: 15px;
+    list-style: none;
+}
+
+/* *****************************************************************
+VERSION TABLETTE
+***************************************************************** */
+
+@media screen and (min-width: 760px) {
+    .subDetail {
+        max-width: 60%;
+    }
+
+}
+
+
+/* *****************************************************************
+VERSION DESKTOP
+***************************************************************** */
+
+@media screen and (min-width: 1100px) {
+    .subDetail {
+        margin: auto;
+    }
+
+    .subDetail_bg {
+        background-color: white;
+        max-width: 60%;
+        margin: auto;
+        padding: 3rem;
+    }
+}

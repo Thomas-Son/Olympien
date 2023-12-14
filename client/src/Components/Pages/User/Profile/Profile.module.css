@@ -1,0 +1,50 @@
+.profile {
+    margin: 10px auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+}
+
+.profile > img {
+    width: 30%;
+    border-radius: 50%;
+}
+
+.profile p {
+    width: 100%;
+}
+
+/* *****************************************************************
+VERSION TABLETTE
+***************************************************************** */
+
+@media screen and (min-width: 760px) {
+    .profile {
+        max-width: 70%;
+        margin: auto;
+        padding: 3rem;
+    }
+
+    .profile>img {
+        width: 20%;
+        margin-right: 20px;
+    }
+
+}
+
+
+/* *****************************************************************
+VERSION DESKTOP
+***************************************************************** */
+
+@media screen and (min-width: 1100px) {
+    .profile > img {
+        max-width: 50%;
+    }
+
+    .profile_bg {
+        background-color: white;
+        max-width: 60%;
+        margin: auto;
+    }
+}

@@ -1,0 +1,95 @@
+nav a:active {
+    border: 2px solid black;
+}
+header nav a {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 8px 10px;
+    padding: 10px;
+    color: white;
+    background-color: #0D2266;
+}
+header > p {
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+}
+
+header img {
+    max-width: 30%;
+    margin: 20px auto;
+}
+
+header h1 {
+    display:  none;
+}
+
+header nav {
+    margin: auto;
+}
+
+/* *****************************************************************
+VERSION TABLETTE
+***************************************************************** */
+
+@media screen and (min-width: 760px) {
+    header {
+        border-bottom: 5px solid #0D2266;
+        padding: 15px 0;
+    }
+    header nav {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    header nav a {
+        width: 30%;
+    }
+
+    header h1 {
+        display: block;
+        margin: 15px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #0D2266;
+    }
+
+    header img {
+        max-width: 25%;
+    }
+}
+
+
+/* *****************************************************************
+VERSION DESKTOP
+***************************************************************** */
+
+@media screen and (min-width: 1100px) {
+    header nav {
+        display: flex;
+    }
+
+    header img {
+        max-width: 10%;
+    }
+
+    header h1 {
+        width: 70%;
+    }
+
+    header div {
+        display: flex;
+        align-items: center;
+    }
+
+    header nav {
+        background-color: #0D2266;
+    }
+
+    header nav a {
+        width: 13%;
+    }
+}

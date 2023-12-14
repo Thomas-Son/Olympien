@@ -1,0 +1,55 @@
+.post {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 3rem auto 0.5rem;
+    width: 90%;
+}
+
+.post input,
+button,
+select {
+    margin: 5px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.checkbox {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.checkbox div {
+    max-width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.checkbox p {
+    width: 100%;
+}
+
+/* *****************************************************************
+VERSION TABLETTE
+***************************************************************** */
+
+@media screen and (min-width: 760px) {
+    .post {
+        max-width: 80%;
+        margin: auto;
+        padding: 3rem;
+    }
+
+}
+
+
+/* *****************************************************************
+VERSION DESKTOP
+***************************************************************** */
+
+@media screen and (min-width: 1100px) {}
