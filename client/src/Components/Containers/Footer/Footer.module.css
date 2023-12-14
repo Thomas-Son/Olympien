@@ -8,3 +8,12 @@
 .footer p {
     text-align: center;
 }
+
+.link {
+    display: flex;
+    margin: auto;
+}
+
+.link * {
+    margin: 0.5rem;
+}
