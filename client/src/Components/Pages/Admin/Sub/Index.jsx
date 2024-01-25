@@ -1,0 +1,1 @@
+import PanelAdmin from "../Panel/Index";

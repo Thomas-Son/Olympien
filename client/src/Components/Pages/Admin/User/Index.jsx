@@ -1,5 +1,10 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Loading from "../../../Containers/Loading/Index"
+
+import PanelAdmin from "../Panel/Index";
+
+import styles from "../Admin.module.css"
 
 function UserList() {
 
@@ -8,7 +13,16 @@ function UserList() {
     useEffect(() => {
         async function getData() {
             try {
-                const users = await (await fetch("/api/v1/admin/user/all")).json();
+                const TOKEN = localStorage.getItem('auth');
+                const users = await (
+                    await fetch("/api/v1/admin/user/all", {
+                        method: 'get',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authentication': `Bearer ${TOKEN}`,
+                        },
+                    })
+                ).json();
                 setUserList(users.datas);
             } catch (error) {
                 throw Error(error);
@@ -18,22 +32,29 @@ function UserList() {
     }, []);
 
     return (
-        <main id="userList">
-            {!userList ? (
-                <Loading />
-            ) : (
-                userList.map((datas) => <p><a href={datas.alias} >{ datas.alias }</a></p>)
-            )}
+        <main className={styles.admin}>
+            <PanelAdmin />
+            <h2>Liste des utilisateurs</h2>
 
-            <form action="/admin/user/add" method="post">
+            <ul>
+                {!userList ? (
+                    <Loading />
+                ) : (
+                    userList.map((datas) => 
+                        <li className={styles.adminList}>
+                            <p>Pseudo : { datas.alias }, Email : {datas.email}</p> 
+                            <div>
+                                <Link to={"modifier/" + datas.id}>Modifier</Link> 
+                                <Link to={"supprimer/" + datas.id}>Supprimer</Link>
+                            </div>
+                        </li>
+                    )
+                )}
+            </ul>
+            
 
-                <input type="text" name="alias" placeholder="Entrer le pseudo du nouvel utilisateur" />
-                <input type="text" name="first_name" placeholder="Entrer le prénom du nouvel utilisateur" />
-                <input type="text" name="last_name" placeholder="Entrer le nom de famille du nouvel utilisateur" />
+            <Link to={"/admin/utilisateur/ajouter"} className={styles.addAdmin}>Ajouter un utilisateur</Link>
 
-                <button type="submit">ajouter le nouvel utilisateur</button>
-
-            </form>
         </main>
     );
 }

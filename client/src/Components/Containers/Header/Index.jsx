@@ -26,19 +26,12 @@ function Header() {
                     :
                     <>
                         <NavLink to={"recherche"}>recherche</NavLink>
-                        {/* <NavLink to={"messages"}>messages</NavLink> */}
                         <NavLink to={"poster"}>poster</NavLink>
                         <NavLink to={userInfos.alias}>profil</NavLink>
 
                         {localStorage.user_role === "admin" && 
                         <>
-                            <NavLink to={"admin"}>administrateur</NavLink>
-                            {/* <div>
-                                <NavLink to={"admin/utilisateur"}>utilisateurs</NavLink>
-                                <NavLink to={"admin/role"}>rôles</NavLink>
-                                <NavLink to={"admin/categorie"}>catégories</NavLink>
-                                <NavLink to={"admin/commentaire"}>commentaires</NavLink>
-                            </div> */}
+                            <NavLink to={"admin"}>administrateur</NavLink>                            
                         </>}
 
                         <NavLink to={"utilisateur/deconnexion"}>déconnexion</NavLink>

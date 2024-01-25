@@ -48,6 +48,17 @@ const createAccount = async (req, res) => {
     try {
         let msg = "";
         const datas = { alias: req.body.alias, email: req.body.email };
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]).{8,}$/;
+
+        if (!emailRegex.test(datas.email)) {
+            return res.status(400).json({ msg: "L'email n'est pas dans un format valide" })
+        }
+        if (!passwordRegex.test(datas.password)) {
+            return res.status(400).json({ msg: "Le mot de passe doit contenir au moins une lettre minuscule, une lettre majuscule et avoir au moins 8 caractères." })
+        }
+
         const queryUser =
             "SELECT alias, email FROM user WHERE alias = ? OR email = ?";
         const [user] = await Query.findByDatas(queryUser, datas);
@@ -69,7 +80,7 @@ const createAccount = async (req, res) => {
             const [account] = await Query.write(query, datas);
 
             const photo ={
-                photo_url: "no-picture.webp",
+                photo_url: "no-photo.webp",
                 user_id: account.insertId,
             }
 

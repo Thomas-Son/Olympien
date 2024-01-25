@@ -9,9 +9,17 @@ function SearchUser() {
     const [search, setSearch] = useState("");
     const [userList, setUserList] = useState(null);
 
+    const TOKEN = localStorage.getItem('auth');
+
     async function handleSubmit(e) {
         e.preventDefault();
-                const results = await (await fetch("/api/v1/search/user/" + search)).json();
+        const results = await (await fetch("/api/v1/search/user/" + search, {
+            method: 'get',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authentication': `Bearer ${TOKEN}`,
+            },
+        })).json();
                 setUserList(results.datas);
                 console.log(userList);
     };

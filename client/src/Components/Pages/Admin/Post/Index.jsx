@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Loading from "../../../Containers/Loading/Index"
 
+import PanelAdmin from "../Panel/Index";
+
 function UserPost() {
 
     const [userPost, setUserPost] = useState(null);
@@ -22,6 +24,8 @@ function UserPost() {
 
     return (
         <main id="userPost">
+            <PanelAdmin />
+
             {!userPost ? (
                 <Loading />
             ) : (

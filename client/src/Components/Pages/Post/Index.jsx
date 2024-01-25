@@ -11,9 +11,11 @@ function Post() {
     const [label, setLabel] = useState("");
     const [content, setContent] = useState("");
     const [category, setCategory] = useState("");
-
-    const fileInput = createRef();
     const [msg, setMsg] = useState(null);
+    
+    const fileInput = createRef();
+
+    const TOKEN = localStorage.getItem('auth');
 
     async function handleSubmit(e) {
         e.preventDefault();
@@ -28,6 +30,9 @@ function Post() {
 
         const res = await fetch("/api/v1/post/add", {
             method: 'POST',
+            headers: {                
+                'Authentication': `Bearer ${TOKEN}`,
+            },
             body: formData
         });
         const json = await res.json();

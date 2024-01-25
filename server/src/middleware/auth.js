@@ -4,7 +4,7 @@ const { SK } = process.env;
 
 const auth = (req, res, next) => {
 
-    const TOKEN = req.headers.authentication.slice(7);
+    const TOKEN = req.headers.authentication && req.headers.authentication.slice(7);
 
     if (TOKEN === undefined || TOKEN === "null") {
         res.status(404).json({ msg: "token not found" });

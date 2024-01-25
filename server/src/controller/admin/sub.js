@@ -1,21 +1,17 @@
 import Query from "../../model/Query.js";
 
-const getUserPost = async (req, res) => {
-    try {
-        const query = " SELECT * FROM user JOIN publication ON user.id = publication.user_id WHERE user.alias = ?";
-        const [datas] = await Query.findByDatas(query, req.params);
+const getSub = async (req, res) => {
 
-        res.status(200).json({ datas });
-    }
-    catch (error) {
-        throw Error(error);
-    }
+    const query = " SELECT * FROM role ";
+    const [datas] = await Query.find(query);
+
+    res.status(200).json({ datas });
 };
 
-const createPost = async (req, res) => {
+const addSub = async (req, res) => {
     try {
-        const data = { category: req.body.category };
-        const query = " INSERT INTO category (label) VALUE (?) ";
+        const data = { role: req.body.role };
+        const query = " INSERT INTO role (label) VALUE (?) ";
         await Query.write(query, data);
 
         res.status(201);
@@ -25,7 +21,7 @@ const createPost = async (req, res) => {
     }
 }
 
-const deletePost = async (req, res) => {
+const deleteSub = async (req, res) => {
     try {
         let msg = ""
         const query = "DELETE FROM category WHERE id = ?";
@@ -39,7 +35,7 @@ const deletePost = async (req, res) => {
     }
 };
 
-const changePost = async (req, res) => {
+const changeSub = async (req, res) => {
     try {
         let msg = ""
         const query = "UPDATE FROM categories WHERE id = ?";
@@ -53,4 +49,5 @@ const changePost = async (req, res) => {
     }
 };
 
-export { getUserPost, createPost, deletePost, changePost };
+
+export { getSub, addSub, deleteSub, changeSub };
